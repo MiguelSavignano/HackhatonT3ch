@@ -87,7 +87,9 @@
               <h3 class="panel-title">¿Que ocurre en tu ciudad?</h3>
             </div>
             <div class="panel-body">
-              Panel content
+            <% current_user.city.notices.limit(6).each do |n| %>
+              <p><a href="#"><%= n.title %> en <%= n.city.name %></a> a las <%= n.created_at.strftime("%H:%M:%S") %></p>
+            <% end %>
             </div>
           </div>
           <div class="panel panel-default">
@@ -95,7 +97,9 @@
               <h3 class="panel-title">Ultimos vecinos</h3>
             </div>
             <div class="panel-body">
-              Panel content
+              <% current_user.city.users.limit(10).each do |v| %>
+                <p><a href="#"><img class="img-circle" src="<%= v.avatar %>" alt=""> <%= v.first_name + v.last_name %></a></p>
+              <% end %>
             </div>
           </div>
           <div class="panel panel-default">
