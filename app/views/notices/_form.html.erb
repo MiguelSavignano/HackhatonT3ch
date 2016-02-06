@@ -1,4 +1,6 @@
 <%= form_for(@notice) do |f| %>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
   <% if @notice.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
@@ -35,3 +37,28 @@
     <%= f.submit 'Enviar noticia', class: 'btn btn-success btn-block' %>
   </div>
 <% end %>
+
+<script>
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+  console.log('Your current position is:');
+  console.log('Latitude : ' + crd.latitude);
+  console.log('Longitude: ' + crd.longitude);
+  console.log('More or less ' + crd.accuracy + ' meters.');
+  $("#notice_latitude").val(crd.latitude)
+  $("#notice_longitude").val(crd.longitude)
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
