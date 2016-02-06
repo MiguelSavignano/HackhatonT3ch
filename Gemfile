@@ -33,6 +33,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
