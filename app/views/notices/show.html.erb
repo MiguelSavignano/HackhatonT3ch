@@ -1,24 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=2000x200&sensor=false&zoom=16&markers=#{@notice.latitude}%2C#{@notice.longitude}", class:"img-responsive img-thumbnail" %>
+  </div>
+  <div class="col-md-5">
+    <%= image_tag @notice.image, class: 'img-responsive' %>
+  </div>
+  <div class="col-md-7">
+      <h1><%= @notice.title %> <small>en <%= @notice.city.name %></small></h1>
 
-<p>
-  <strong>City:</strong>
-  <%= @notice.city %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @notice.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @notice.description %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @notice.rating %>
-</p>
-
-<%= link_to 'Edit', edit_notice_path(@notice) %> |
-<%= link_to 'Back', notices_path %>
+    <p>
+      <%= @notice.description %>
+    </p>
+  </div>
+</div>
