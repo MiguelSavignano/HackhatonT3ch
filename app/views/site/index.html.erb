@@ -33,7 +33,7 @@
           <%= n.user.try(:first_name) %> <%= n.user.try(:last_name) %>
         </td>
         <td>
-          <a href="#" class="btn btn-info ">Ver más</a>
+          <a href="<%= notice_path(n) %>" class="btn btn-info ">Ver más</a>
         </td>
       </tr>
     </tbody>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :city
   has_many :notices
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
          after_initialize :set_default_data, :if => :new_record?
 
 
