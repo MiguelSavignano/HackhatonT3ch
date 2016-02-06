@@ -5,7 +5,7 @@ class NoticesController < ApplicationController
   # GET /notices.json
   def index
     city = City.first
-    @notices = city.notices
+    @notices = city.notices unless city.nil?
     #@notices = Notice.all
   end
 
