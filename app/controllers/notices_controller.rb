@@ -4,7 +4,9 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    city = City.first
+    @notices = city.notices
+    #@notices = Notice.all
   end
 
   # GET /notices/1
