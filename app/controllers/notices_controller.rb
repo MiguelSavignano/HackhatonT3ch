@@ -77,6 +77,7 @@ class NoticesController < ApplicationController
         :title,
         :description,
         :rating,
+        :image,
         :latitude,
         :longitude)
     end
