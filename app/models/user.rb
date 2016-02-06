@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_merit
 
+  has_many :votes
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :city
@@ -16,4 +18,15 @@ class User < ActiveRecord::Base
          self.role ||= 'user'
      end
   end
+
+  def has_voted?(notice_id)
+    self.votes.any? do |vote|
+      vote[:notice_id] == notice_id
+    end
+  end
+
+  def times_voted
+    self.votes.count
+  end
+
 end
