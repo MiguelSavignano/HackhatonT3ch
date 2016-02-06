@@ -1,4 +1,17 @@
 <%= form_for(@notice) do |f| %>
+  <p>
+    <label>Sube una foto</label>
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag(@notice.image) if @notice.image? %>
+        <%= f.file_field :avatar, id:"imgInp", accept:"image/*", capture:"camera" %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+      <div class="col-md-6">
+        <img class="responsive" height="200" id="blah" src="#" alt="your image" />
+      </div>
+    </div>
+  </p>
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
   <% if @notice.errors.any? %>
@@ -61,4 +74,24 @@ function error(err) {
 };
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
+
+
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+
 </script>
