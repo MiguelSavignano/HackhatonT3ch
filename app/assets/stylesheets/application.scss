@@ -27,8 +27,24 @@ $well-bg:$color-neutral;
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.notice{
-  h1{
-    text-align: center;
-  }
-}
+ @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+ @import url(https://fonts.googleapis.com/css?family=Roboto);
+ @import url(https://fonts.googleapis.com/css?family=Marvel);
+
+ $roboto-slab: 'Roboto Slab', serif;
+ $roboto: 'Roboto';
+ $marvel: 'Marvel';
+
+ .notice{
+   h1{
+     text-align: center;
+   }
+ }
+ 
+ p {
+   font-family: $roboto;
+ }
+
+ h1, h2, h3 {
+   font-family: roboto-slab;
+ }
