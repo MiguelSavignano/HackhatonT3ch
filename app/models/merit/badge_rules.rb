@@ -44,6 +44,8 @@ module Merit
       #
       #   user.name.length > 4
       # end
+      grant_on 'users/registrations#create', badge: 'Reclutado!', to: :action_user
+
     end
   end
 end
