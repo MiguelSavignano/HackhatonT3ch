@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
+
  *= require_self
  */
 
@@ -26,6 +28,10 @@ $well-bg:$color-neutral;
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ .btn-facebook{color:#fff;background-color:#3b5998;border-color:rgba(0,0,0,0.2)}.btn-facebook:hover,.btn-facebook:focus,.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+ .btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{background-image:none}
+ .btn-facebook.disabled,.btn-facebook[disabled],fieldset[disabled] .btn-facebook,.btn-facebook.disabled:hover,.btn-facebook[disabled]:hover,fieldset[disabled] .btn-facebook:hover,.btn-facebook.disabled:focus,.btn-facebook[disabled]:focus,fieldset[disabled] .btn-facebook:focus,.btn-facebook.disabled:active,.btn-facebook[disabled]:active,fieldset[disabled] .btn-facebook:active,.btn-facebook.disabled.active,.btn-facebook[disabled].active,fieldset[disabled] .btn-facebook.active{background-color:#3b5998;border-color:rgba(0,0,0,0.2)}
+ .btn-facebook .badge{color:#3b5998;background-color:#fff}
 
  @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
  @import url(https://fonts.googleapis.com/css?family=Roboto);
@@ -40,7 +46,7 @@ $well-bg:$color-neutral;
      text-align: center;
    }
  }
- 
+
  p {
    font-family: $roboto;
  }
@@ -48,3 +54,4 @@ $well-bg:$color-neutral;
  h1, h2, h3 {
    font-family: roboto-slab;
  }
+>>>>>>> f93c3c3e28eede1a51c4881298dd8ae41cf10194

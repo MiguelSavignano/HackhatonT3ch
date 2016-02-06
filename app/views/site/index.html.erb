@@ -1,7 +1,7 @@
 <% @notices.each do |n| %>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= n.title %></h3>
+    <h3 class="panel-title"><%= n.title %> <small>Publicado por: <%= n.user.first_name %></small></h3>
   </div>
   <div class="panel-body">
     <%= n.description %>

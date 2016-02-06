@@ -24,10 +24,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
 gem "figaro"
 gem 'devise'
 gem 'merit'
-
+gem 'pry-rails'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 

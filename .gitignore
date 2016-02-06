@@ -11,6 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-
+Gemfle.lock
 # Ignore application configuration
 /config/application.yml
