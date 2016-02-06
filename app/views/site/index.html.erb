@@ -1,12 +1,42 @@
-<% @notices.each do |n| %>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= n.title %> <small>Publicado por: <%= n.user.try(:first_name) %></small></h3>
-  </div>
-  <div class="panel-body">
-    <%= n.description %>
-    <a href="<%= notice_path(n)%>" class="btn btn-info pull-right">Ver más</a>
-  </div>
-</div>
-<p></p>
-<% end %>
+<h1>Noticias</h1>
+<table class="table table-striped">
+  <thead>
+    <th>
+      Ciudad
+    </th>
+    <th>
+      Noticia
+    </th>
+    <th>
+      Fecha
+    </th>
+    <th>
+      Autor
+    </th>
+    <th>
+
+    </th>
+  </thead>
+  <% @notices.each do |n| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= n.city.name %>
+        </td>
+        <td>
+          <%= n.title %>
+        </td>
+        <td>
+          <%= n.created_at.strftime("%b %e, %l:%M %p") %>
+        </td>
+        <td>
+          <%= n.user.try(:first_name) %> <%= n.user.try(:last_name) %>
+        </td>
+        <td>
+          <a href="#" class="btn btn-info ">Ver más</a>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+<h1>Eventos</h1>

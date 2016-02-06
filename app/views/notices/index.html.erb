@@ -7,6 +7,8 @@
       </a>
       <strong><%= notice.user.points %></strong> puntos
       <hr>
+      <strong><%= notice.created_at.strftime("%e %b %Y %H:%M:%S%p") %></strong>
+      <hr>
         <a class="btn btn-primary btn-block" role="button" data-toggle="collapse" href="#collapse<%=notice.id%>" aria-expanded="false" aria-controls="collapse<%=notice.id%>">
           Ver lugar
         </a>
@@ -14,7 +16,7 @@
         <a href="#" class="btn btn-warning btn-block">Denunciar</a>
     </div>
     <div class="col-md-9 well">
-        <h1><%= notice.title %></h1>
+        <h1> <%= notice.title %> <small><%= notice.city.name %></small></h1>
         <p><%= notice.description%></p>
         <div class="collapse" id="collapse<%=notice.id%>">
           <%= image_tag "http://maps.google.com/maps/api/staticmap?size=2000x200&sensor=false&zoom=16&markers=#{notice.latitude}%2C#{notice.longitude}", class:"img-responsive img-thumbnail" %>
