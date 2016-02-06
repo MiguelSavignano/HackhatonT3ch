@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(version: 20160206105808) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "notice_id"
+    t.text     "text"
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["notice_id"], name: "index_comments_on_notice_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "action_method"
@@ -60,29 +79,6 @@ ActiveRecord::Schema.define(version: 20160206105808) do
     t.string  "category", default: "default"
   end
 
-  create_table "sashes", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-  create_table "cities", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "notice_id"
-    t.text     "text"
-    t.string   "title"
-    t.integer  "user_id"
-    t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "comments", ["notice_id"], name: "index_comments_on_notice_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
   create_table "notices", force: :cascade do |t|
     t.integer  "city_id"
     t.string   "title"
@@ -94,6 +90,11 @@ ActiveRecord::Schema.define(version: 20160206105808) do
   end
 
   add_index "notices", ["city_id"], name: "index_notices_on_city_id", using: :btree
+
+  create_table "sashes", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
