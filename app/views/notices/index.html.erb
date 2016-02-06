@@ -1,11 +1,13 @@
 <% @notices.each do |notice| %>
   <div class="row">
-    <div class="col-md-3 text-center" style="background:rgb(152, 231, 138); border-radius: 10px; padding:3%">
+    <div class="col-md-3 text-center" style="background:rgb(152, 231, 138); padding:3%">
       <a href="#">
         <%= image_tag(notice.user.avatar, class: 'img-responsive img-circle', style: 'margin: 0 auto;') %>
         <strong><%= notice.user.first_name %></strong><br>
       </a>
       <strong><%= notice.user.points %></strong> puntos
+      <hr>
+      <strong><%= notice.created_at.strftime("%e %b %Y %H:%M:%S%p") %></strong>
       <hr>
         <a class="btn btn-primary btn-block" role="button" data-toggle="collapse" href="#collapse<%=notice.id%>" aria-expanded="false" aria-controls="collapse<%=notice.id%>">
           Ver lugar
@@ -14,11 +16,12 @@
         <a href="#" class="btn btn-warning btn-block">Denunciar</a>
     </div>
     <div class="col-md-9 well">
-        <h1><%= notice.title %></h1>
+        <h1> <%= notice.title %> <small><%= notice.city.name %></small></h1>
         <p><%= notice.description%></p>
         <div class="collapse" id="collapse<%=notice.id%>">
           <%= image_tag "http://maps.google.com/maps/api/staticmap?size=2000x200&sensor=false&zoom=16&markers=#{notice.latitude}%2C#{notice.longitude}", class:"img-responsive img-thumbnail" %>
         </div>
     </div>
   </div>
+  <hr>
 <% end %>
