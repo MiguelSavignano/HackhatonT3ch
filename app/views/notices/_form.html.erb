@@ -29,7 +29,7 @@
   <div class="col-md-6">
     <div class="field">
       <%= f.label :city_id %><br>
-      <%= f.select :city_id, City.pluck(:name, :id), {}, class: 'form-control' %>
+      <%= f.select :city_id, City.pluck(:name, :id), {}, class: 'form-control select2' %>
     </div>
   </div>
   <div class="col-md-6">
@@ -95,3 +95,7 @@ $("#imgInp").change(function(){
 });
 
 </script>
+
+  <script>
+$(".select2").select2({width: '100%'});
+  </script>
