@@ -26,7 +26,7 @@
         </ul>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
-            Conectado como: <strong><%= current_user.first_name %></strong>.
+            Conectado como: <strong><%= current_user.first_name %></strong>. <span class="label label-info"><%= current_user.points %> puntos</span>
             <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
             <%= link_to "Desconectar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
