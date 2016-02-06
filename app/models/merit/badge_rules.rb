@@ -38,9 +38,9 @@ module Merit
       #   comment.votes.count == 5
       # end
 
-      # grant_on 'panel/control#index',  badge: 'Veni vidi vici', model_name: 'User', to: :action_user do |user|
-      #   user.participates.count > 0 || user.participates.count == 1
-      # end
+      grant_on 'site#index',  badge: 'Primicia', model_name: 'User', to: :action_user do |user|
+        user.notices.count > 0 || user.notices.count == 1
+      end
 
       # Changes his name by one wider than 4 chars (arbitrary ruby code case)
       # grant_on 'registrations#update', badge: 'autobiographer',

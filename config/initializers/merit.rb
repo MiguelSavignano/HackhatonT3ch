@@ -37,3 +37,15 @@ Merit::Badge.create!(
   description: "Se ha registrado en la plataforma",
   custom_fields: { difficulty: :silver, img: 'http://placehold.it/125x125' }
 )
+Merit::Badge.create!(
+  id: 2,
+  name: "Primicia",
+  description: "Ha publicado una noticia",
+  custom_fields: { difficulty: :silver, img: './badges/b1.svg' }
+)
+Merit::Badge.create!(
+  id: 3,
+  name: "Reportero",
+  description: "Vaya racha de noticias!",
+  custom_fields: { difficulty: :silver, img: './badges/b2.svg' }
+)
