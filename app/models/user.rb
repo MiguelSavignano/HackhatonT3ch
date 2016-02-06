@@ -16,4 +16,10 @@ class User < ActiveRecord::Base
          self.role ||= 'user'
      end
   end
+
+  def has_voted?(notice_id)
+    self.votes.any? do |vote|
+      vote[:notice_id] == notice_id
+    end
+  end
 end
