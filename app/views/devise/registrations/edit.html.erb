@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="col-md-8">
+  <div class="col-md-4">
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: 'form-control' %>
@@ -40,6 +40,12 @@
     <div class="actions">
       <%= f.submit "Actualizar datos", class: 'btn btn-block btn-default' %>
     </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Medallero</h2>
+    <% current_user.badges.each do |b| %>
+      <p><%= b.name %></p>
+    <% end %>
   </div>
 <% end %>
   <div class="col-md-12">
