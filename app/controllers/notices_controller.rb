@@ -4,8 +4,7 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    city = City.first
-    @notices = city.notices unless city.nil?
+    @notices = Notice.all
     #@notices = Notice.all
   end
 
