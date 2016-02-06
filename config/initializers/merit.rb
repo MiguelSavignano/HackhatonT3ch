@@ -31,3 +31,9 @@ end
 # }].each do |attrs|
 #   Merit::Badge.create! attrs
 # end
+Merit::Badge.create!(
+  id: 1,
+  name: "Reclutado!",
+  description: "Se ha registrado en la plataforma",
+  custom_fields: { difficulty: :silver, img: 'http://placehold.it/125x125' }
+)
