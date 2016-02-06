@@ -15,3 +15,18 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+ @import url(https://fonts.googleapis.com/css?family=Roboto);
+ @import url(https://fonts.googleapis.com/css?family=Marvel);
+
+ $roboto-slab: 'Roboto Slab', serif;
+ $roboto: 'Roboto';
+ $marvel: 'Marvel';
+
+ p {
+   font-family: $roboto;
+ }
+
+ h1, h2, h3 {
+   font-family: roboto-slab;
+ }
