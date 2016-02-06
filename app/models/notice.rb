@@ -9,4 +9,12 @@ class Notice < ActiveRecord::Base
     self.votes.count
   end
 
+  def vote_positive(current_user)
+    Vote.create(user_id:current_user.id,notice_id:self.id)
+  end
+
+  def vote_negative(current_user)
+    Vote.find_by(user_id:current_user.id).try(:destroy)
+  end
+
 end
