@@ -28,19 +28,19 @@
 <div class="row">
   <div class="col-md-6">
     <div class="field">
-      <%= f.label :city_id %><br>
+      <%= f.label "Tu ciudad" %><br>
       <%= f.select :city_id, City.pluck(:name, :id), {}, class: 'form-control select2' %>
     </div>
   </div>
   <div class="col-md-6">
     <div class="field">
-      <%= f.label :title %><br>
+      <%= f.label "Que ha pasado??" %><br>
       <%= f.text_field :title, class: 'form-control' %>
     </div>
   </div>
   <div class="col-md-12">
     <div class="field">
-      <%= f.label :description %><br>
+      <%= f.label "Cuentanos mas!" %><br>
       <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
@@ -49,6 +49,9 @@
   <div class="actions">
     <%= f.submit 'Enviar noticia', class: 'btn btn-success btn-block' %>
   </div>
+  <br>
+  <br>
+  <br>
 <% end %>
 
 <script>
