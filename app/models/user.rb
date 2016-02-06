@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
       vote[:notice_id] == notice_id
     end
   end
+
+  def times_voted
+    self.votes.count
+  end
+
 end
