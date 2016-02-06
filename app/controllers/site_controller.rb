@@ -3,7 +3,6 @@ class SiteController < ApplicationController
   before_action :set_user
   def index
     @notices = Notice.where(city_id: current_user.city)
-    @vecinos = current_user.city.users.limit(10)
   end
 private
   # Use callbacks to share common setup or constraints between actions.

@@ -12,8 +12,7 @@
         <a class="btn btn-primary btn-block" role="button" data-toggle="collapse" href="#collapse<%=notice.id%>" aria-expanded="false" aria-controls="collapse<%=notice.id%>">
           Ver situacion
         </a>
-        <a href="#" class="btn btn-info btn-block">Compartir</a>
-        <a href="#" class="btn btn-warning btn-block">Denunciar</a>
+        <a href="<%= notice_path(notice) %>" class="btn btn-warning btn-block">Ver noticia</a>
     </div>
     <div class="col-md-9 well">
         <h1> <%= notice.title %> <small><%= notice.city.name %></small></h1>
