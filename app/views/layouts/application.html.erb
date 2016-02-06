@@ -23,12 +23,17 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
           <li><a href="<%= root_path %>">Inicio</a></li>
+          <li><a href="<%= root_path %>">Noticias</a></li>
+          <li><a href="<%= root_path %>">Eventos</a></li>
+          <li><a href="<%= root_path %>">Comunidades</a></li>
+          <li><a href="<%= root_path %>">Grupos</a></li>
+          <li><a href="<%= root_path %>">Actividad del sitio</a></li>
         </ul>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
-            Conectado como: <strong><%= current_user.first_name %></strong>.
+            Conectado como: <strong><%= current_user.first_name %></strong>. <span class="label label-info"><%= current_user.points %> puntos</span>
             <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Desconectar", destroy_user_session_path, :class => 'navbar-link'  %>
+            <%= link_to "Desconectar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
             <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
