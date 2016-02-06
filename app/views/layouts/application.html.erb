@@ -45,15 +45,49 @@
   </nav>
 <% end %>
   <div class="container">
-    <% flash.each do |name, msg| %>
-      <% if msg.is_a?(String) %>
-        <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <div class="row">
+      <div class="col-md-8">
+        <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) %>
+            <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            </div>
+          <% end %>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div class="col-md-4">
+        <a href="<%= new_notice_path %>" class="btn btn-danger btn-block">Publicar noticia</a>
+        <hr>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">¿Que ocurre en tu ciudad?</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
         </div>
-      <% end %>
-    <% end %>
-    <%= yield %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Ultimos vecinos</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">¿Necesitas ayuda?</h3>
+          </div>
+          <div class="panel-body">
+            <a href="#" class="btn btn-default btn-block">Preguntas frecuentes</a>
+            <a href="#" class="btn btn-default btn-block">Sugerencias</a>
+            <a href="#" class="btn btn-default btn-block">Contacto</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
