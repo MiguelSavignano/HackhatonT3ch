@@ -24,7 +24,7 @@ module Merit
       #   'photos#create'
       # ]
       #
-      # score -10, :on => 'comments#destroy'
+      score 15, :on => 'users/registrations#create'
     end
   end
 end
