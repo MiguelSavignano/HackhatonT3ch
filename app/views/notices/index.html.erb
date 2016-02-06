@@ -1,6 +1,6 @@
 <% @notices.each do |notice| %>
   <div class="row">
-    <div class="col-md-3 text-center" style="background:rgb(152, 231, 138); border-radius: 10px; padding:3%">
+    <div class="col-md-3 text-center" style="background:rgb(152, 231, 138); padding:3%">
       <a href="#">
         <%= image_tag(notice.user.avatar, class: 'img-responsive img-circle', style: 'margin: 0 auto;') %>
         <strong><%= notice.user.first_name %></strong><br>
@@ -21,4 +21,5 @@
         </div>
     </div>
   </div>
+  <hr>
 <% end %>
