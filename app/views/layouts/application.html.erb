@@ -4,6 +4,8 @@
   <title>Hackhaton</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css"%>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"%>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -136,6 +138,9 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>
+$(".select2").select2({width: '100%'});
   </script>
 </body>
 </html>
