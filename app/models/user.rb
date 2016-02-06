@@ -5,4 +5,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         after_initialize :set_default_data, :if => :new_record?
+
+
+  private
+  def set_default_data
+     unless self.role
+         self.role ||= 'user'
+     end
+  end
 end
