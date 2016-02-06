@@ -5,7 +5,7 @@ class NoticesController < ApplicationController
   # GET /notices.json
   def index
     city = City.first
-    @notices = city.notices
+    @notices = city.notices unless city.nil?
     #@notices = Notice.all
   end
 
@@ -27,7 +27,7 @@ class NoticesController < ApplicationController
   # POST /notices.json
   def create
     @notice = Notice.new(notice_params)
-    @notice.user = current_user 
+    @notice.user = current_user
 
     respond_to do |format|
       if @notice.save

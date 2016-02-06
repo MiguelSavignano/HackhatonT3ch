@@ -31,6 +31,9 @@ gem 'merit'
 gem 'pry-rails'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
