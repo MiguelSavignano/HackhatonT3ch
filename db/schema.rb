@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206113149) do
+ActiveRecord::Schema.define(version: 20160206113352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,9 +87,11 @@ ActiveRecord::Schema.define(version: 20160206113149) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "verified"
+    t.integer  "user_id"
   end
 
   add_index "notices", ["city_id"], name: "index_notices_on_city_id", using: :btree
+  add_index "notices", ["user_id"], name: "index_notices_on_user_id", using: :btree
 
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at"
@@ -126,5 +128,6 @@ ActiveRecord::Schema.define(version: 20160206113149) do
   add_foreign_key "comments", "notices"
   add_foreign_key "comments", "users"
   add_foreign_key "notices", "cities"
+  add_foreign_key "notices", "users"
   add_foreign_key "users", "cities"
 end
