@@ -72,9 +72,14 @@
               <h3 class="panel-title">Mis medallas</h3>
             </div>
             <div class="panel-body">
-              <% current_user.badges.each do |b| %>
-                <img src="<%= b.custom_fields[:img] %>" alt="<%= b.name %>"> 
-              <% end %>
+              <div class="row">
+                <% current_user.badges.each do |b| %>
+                  <div class="col-md-3 text-center">
+                    <img src=".<%= b.custom_fields[:img] %>" alt="<%= b.name %>"> <br>
+                    <p><%= b.name %></p>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="panel panel-default">

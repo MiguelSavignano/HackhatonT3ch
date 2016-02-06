@@ -42,13 +42,17 @@ module Merit
         user.notices.count > 0 || user.notices.count == 1
       end
 
+      grant_on 'site#index',  badge: 'Reportero', model_name: 'User', to: :action_user do |user|
+        user.notices.count > 1
+      end
+
       # Changes his name by one wider than 4 chars (arbitrary ruby code case)
       # grant_on 'registrations#update', badge: 'autobiographer',
       #   temporary: true, model_name: 'User' do |user|
       #
       #   user.name.length > 4
       # end
-      grant_on 'users/registrations#create', badge: 'Reclutado!', to: :action_user
+      grant_on 'site#index', badge: 'Tester', to: :action_user
 
     end
   end

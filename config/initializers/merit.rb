@@ -49,3 +49,9 @@ Merit::Badge.create!(
   description: "Vaya racha de noticias!",
   custom_fields: { difficulty: :silver, img: './badges/b2.svg' }
 )
+Merit::Badge.create!(
+  id: 4,
+  name: "Tester",
+  description: "Esta probando la beta!",
+  custom_fields: { difficulty: :silver, img: './badges/b3.svg' }
+)
