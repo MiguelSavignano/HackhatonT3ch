@@ -48,6 +48,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
+        <% if current_user && current_user.first_name.nil? %>
+          <div class="alert alert-success">
+            Sabemos que aun no has rellenado tu perfil... Así que te invitamos a que lo hagas. <a href="<%= edit_user_registration_path %>" class="btn btn-success">Actualizar perfíl</a>
+          </div>
+        <% end %>
         <% flash.each do |name, msg| %>
           <% if msg.is_a?(String) %>
             <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
