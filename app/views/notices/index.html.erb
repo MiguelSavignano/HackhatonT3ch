@@ -13,9 +13,11 @@
           Ver situacion
         </a>
         <a href="<%= notice_path(notice) %>" class="btn btn-warning btn-block">Ver noticia</a>
+        <a href="<%= vote_positive_path(id:notice.id) %>)" class="btn btn-warning btn-block">Votar</a>
     </div>
     <div class="col-md-9 well">
         <h1> <%= notice.title %> <small><%= notice.city.name %></small></h1>
+        <small>Votos: <%= notice.get_rating%></small>
         <p><%= notice.description%></p>
         <div class="collapse" id="collapse<%=notice.id%>">
           <div class="col-md-12">

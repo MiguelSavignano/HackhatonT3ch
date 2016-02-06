@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :cities
   devise_for :users, :controllers => { omniauth_callbacks: "callbacks", registrations: 'registrations' }
   root 'site#index'
+  get 'vote_positive/:id' => 'notices#vote', as: :vote_positive
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

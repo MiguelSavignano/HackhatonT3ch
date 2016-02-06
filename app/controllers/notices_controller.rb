@@ -1,11 +1,16 @@
 class NoticesController < ApplicationController
-  before_action :set_notice, only: [:show, :edit, :update, :destroy]
+  before_action :set_notice, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /notices
   # GET /notices.json
   def index
     @notices = Notice.order(created_at: :desc)
     #@notices = Notice.all
+  end
+
+  def vote
+    @notice.vote_positive(current_user)
+    redirect_to notices_url
   end
 
   # GET /notices/1
