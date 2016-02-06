@@ -1,10 +1,10 @@
-<%= form_for(@notice) do |f| %>
+<%= form_for(@notice, html: { multipart: true }) do |f| %>
   <p>
     <label>Sube una foto</label>
     <div class="row">
       <div class="col-md-6">
         <%= image_tag(@notice.image) if @notice.image? %>
-        <%= f.file_field :avatar, id:"imgInp", accept:"image/*", capture:"camera" %>
+        <%= f.file_field :image, id:"imgInp", accept:"image/*", capture:"camera" %>
         <%= f.hidden_field :image_cache %>
       </div>
       <div class="col-md-6">
