@@ -26,7 +26,6 @@ class NoticesController < ApplicationController
   # POST /notices
   # POST /notices.json
   def create
-    binding.pry
     @notice = Notice.new(notice_params)
     @notice.user = current_user
 
