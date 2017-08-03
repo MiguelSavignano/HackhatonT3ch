@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3 text-center" style="background:rgb(152, 231, 138); padding:3%">
       <a href="#">
-        <%= image_tag(notice.user.try(:avatar), class: 'img-responsive img-circle', style: 'margin: 0 auto;') %>
+        <%= image_tag(notice.user.try(:avatar), class: 'img-responsive img-circle', style: 'margin: 0 auto;') if notice.user.try(:avatar) %>
         <strong><%= notice.user.first_name %></strong><br>
       </a>
       <strong><%= notice.user.points %></strong> puntos

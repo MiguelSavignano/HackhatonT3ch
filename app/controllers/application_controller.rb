@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :user_id, :suscribed, :remember_me) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :suscribed) }    if devise_controller? && resource_name == :user && action_name == "edit"
+    devise_parameter_sanitizer.permit(:sign_up,  keys: [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :user_id, :suscribed, :remember_me])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :email, :password, :remember_me])
+    devise_parameter_sanitizer.permit(:account_update, keys:  [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :suscribed]) if devise_controller? && resource_name == :user && action_name == "edit"
   end
 end

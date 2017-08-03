@@ -7,6 +7,6 @@ class SiteController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @site = User.find(current_user)
+    @site = current_user
   end
 end
