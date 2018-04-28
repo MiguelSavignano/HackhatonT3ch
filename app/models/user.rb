@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   has_merit
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :city
-  has_many :notices
+  has_many :notices, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
          after_initialize :set_default_data, :if => :new_record?
