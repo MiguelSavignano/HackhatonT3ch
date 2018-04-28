@@ -1,4 +1,4 @@
-class City < ActiveRecord::Base
-  has_many :users
-  has_many :notices
+class City < ApplicationRecord
+  has_many :users, dependent: :destroy
+  has_many :notices, dependent: :destroy
 end
