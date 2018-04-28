@@ -24,7 +24,7 @@ module Merit
       #   'photos#create'
       # ]
       #
-      score 15, on: 'notices#create'
+      score 15, :on => 'notices#create'
     end
   end
 end

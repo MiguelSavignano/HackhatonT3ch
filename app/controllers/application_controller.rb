@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    "login" if devise_controller? && resource_name == :user && action_name == "new"
+    if devise_controller? && resource_name == :user && action_name == "new"
+      "login"
+    end
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :user_id, :suscribed, :remember_me])
+    devise_parameter_sanitizer.permit(:sign_up,  keys: [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :user_id, :suscribed, :remember_me])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :email, :password, :remember_me])
-    return true unless devise_controller? && resource_name == :user && action_name == "edit"
-    devise_parameter_sanitizer.permit(:account_update, keys:
-        [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :suscribed])
+    devise_parameter_sanitizer.permit(:account_update, keys:  [:first_name, :last_name, :city_id, :email, :password, :password_confirmation, :suscribed]) if devise_controller? && resource_name == :user && action_name == "edit"
   end
 end

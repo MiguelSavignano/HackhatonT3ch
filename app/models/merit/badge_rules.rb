@@ -38,11 +38,11 @@ module Merit
       #   comment.votes.count == 5
       # end
 
-      grant_on 'site#index', badge: 'Primicia', model_name: 'User', to: :action_user do |user|
+      grant_on 'site#index',  badge: 'Primicia', model_name: 'User', to: :action_user do |user|
         user.notices.count > 0 || user.notices.count == 1
       end
 
-      grant_on 'site#index', badge: 'Reportero', model_name: 'User', to: :action_user do |user|
+      grant_on 'site#index',  badge: 'Reportero', model_name: 'User', to: :action_user do |user|
         user.notices.count > 1
       end
 
@@ -53,6 +53,7 @@ module Merit
       #   user.name.length > 4
       # end
       grant_on 'site#index', badge: 'Tester', to: :action_user
+
     end
   end
 end

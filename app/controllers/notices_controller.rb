@@ -5,7 +5,7 @@ class NoticesController < ApplicationController
   # GET /notices.json
   def index
     @notices = Notice.order(created_at: :desc)
-    # @notices = Notice.all
+    #@notices = Notice.all
   end
 
   def vote
@@ -15,7 +15,8 @@ class NoticesController < ApplicationController
 
   # GET /notices/1
   # GET /notices/1.json
-  def show; end
+  def show
+  end
 
   # GET /notices/new
   def new
@@ -23,7 +24,8 @@ class NoticesController < ApplicationController
   end
 
   # GET /notices/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /notices
   # POST /notices.json
@@ -67,23 +69,21 @@ class NoticesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_notice
+      @notice = Notice.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_notice
-    @notice = Notice.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def notice_params
-    params.require(:notice)
-          .permit(
-            :city_id,
-            :title,
-            :description,
-            :rating,
-            :image,
-            :latitude,
-            :longitude
-          )
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def notice_params
+      params.require(:notice)
+      .permit(
+        :city_id,
+        :title,
+        :description,
+        :rating,
+        :image,
+        :latitude,
+        :longitude)
+    end
 end
