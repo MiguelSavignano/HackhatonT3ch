@@ -32,7 +32,7 @@ class User < ApplicationRecord
     if user
       user
     else
-      registered_user = User.find_by(email: auth.uid + "@twitter.com")
+      registered_user = User.where(email: auth.uid + "@twitter.com").first
       if registered_user
         registered_user
       else
