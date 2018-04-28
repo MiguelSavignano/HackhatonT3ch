@@ -27,6 +27,11 @@ class User < ApplicationRecord
     end
   end
 
+  def self.hash_error
+    hash = { a: 1, b: 2 }
+    hash.has_key?(:a)
+  end
+
   def self.find_for_twitter_oauth(auth, _signed_in_resource = nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
     if user
